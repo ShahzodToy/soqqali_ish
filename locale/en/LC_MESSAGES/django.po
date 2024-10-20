@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-20 13:25+0500\n"
+"PO-Revision-Date: 2024-10-20 13:25+0500\n"
+"Last-Translator:   <admin@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: .\config\settings.py:116
+msgid "Uzbek"
+msgstr "Uzbek"
+
+#: .\config\settings.py:117
+msgid "English"
+msgstr "English"
+
+#: .\config\settings.py:118
+msgid "Russian"
+msgstr "Russian"
+
+#: .\templates\index.html:182 .\templates\main_home.html:132
+msgid "Bizning hizmatlar"
+msgstr "Our projects"
+
+#: .\templates\index.html:185
+msgid "Biz haqimizda"
+msgstr "Our services"
+
+#: .\templates\index.html:188
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: .\templates\index.html:191
+msgid "Kontakt"
+msgstr "Contact"
+
+#: .\templates\index.html:225
+msgid "Telefon raqam"
+msgstr "Phone number"
+
+#: .\templates\index.html:228
+msgid "Address"
+msgstr "Address"
+
+#: .\templates\index.html:238
+msgid " Kontaktlarni qoldirish uchun"
+msgstr "Leave your contact"
+
+#: .\templates\main_home.html:118
+msgid "Biz sizning tarixingizni "
+msgstr "we are makers of your"
+
+#: .\templates\main_home.html:119
+msgid "yaratuvchilarmiz"
+msgstr "history"
+
+#: .\templates\main_home.html:133
+msgid "Asosiy hizmatlarimiz turli xil"
+msgstr "Our extensive services are diverse"
+
+#: .\templates\main_home.html:148
+msgid "Boshqa xizmatlar .."
+msgstr "More .."
+
+#: .\templates\main_home.html:158
+msgid "Kompaniya haqida"
+msgstr "Abour company"
+
+#: .\templates\main_home.html:159
+msgid ""
+"Shunday qilib, sizga mukammal tadbirni tashkil qilishda yordam beraylik."
+msgstr "So let us help you organize the perfect event."
+
+#: .\templates\main_home.html:160
+msgid ""
+"Biz tadbirlar tashkil tomonidan universitetda bizning yo'lga boshladi, qaysi"
+" bizning tajriba uchun asos. U erdan biz turli xil ko'ngillilik tadbirlarini"
+" kengaytirdik, qimmatli ko'nikmalar va tushunchalarga ega bo'ldik. Oxir-"
+"oqibat, biz voqealar sanoatining boshqa sohalariga, shu jumladan sport "
+"musobaqalari, korporativ tadbirlar va kampaniyalarga kirib, tajribamiz va "
+"xizmatlarimizni doimiy ravishda kengaytirdik."
+msgstr ""
+"We began our journey in university by organizing events, which laid the "
+"foundation for our experience. From there, we expanded into various "
+"volunteering activities, gaining valuable skills and insights. Eventually, "
+"we ventured into other areas of the event industry, including sports "
+"competitions, corporate events, and campaigns, continuously broadening our "
+"expertise and services."
+
+#: .\templates\main_home.html:169
+msgid ""
+"Bizning noyob sanoat tajribamiz bilan biz sizning tadbiringizni muammosiz va"
+" unutilmas qilishga intilamiz. Biz boshidan oxirigacha har tafsilotini band,"
+" butun jarayon orqali sizga yo'l-yo'riq va alohida xulosaga qadar erdan "
+"sizning tadbir qurish."
+msgstr ""
+"With our unique industry experience, we are committed to making your event "
+"seamless and unforgettable. We handle every detail from start to finish, "
+"guiding you through the entire process and building your event from the "
+"ground up to an exceptional conclusion."
+
+#: .\templates\main_home.html:170
+msgid ""
+"Biz mezbonlik qiladigan har bir tadbirda jahon darajasidagi standartlarni "
+"taqdim etishdan faxrlanamiz, bu bizga BFI erkaklar o'rtasidagi boks bo'yicha"
+" Jahon chempionati, futzal bo'yicha FIFA Jahon chempionati, taekvondo "
+"bo'yicha Jahon turniri saylovlari va boshqalar kabi taniqli tadbirlar bilan "
+"muvaffaqiyatli hamkorlik o'rnatishga imkon berdi."
+msgstr ""
+"We take pride in delivering world-class standards at every event we host, "
+"which has allowed us to establish successful partnerships with prominent "
+"events such as the IBA Men’s World Boxing Championship, FIFA Futsal World "
+"Cup, Taekwondo World Tournament election, and more."
+
+#: .\templates\main_home.html:183
+msgid "Bizning loihalarimiz"
+msgstr "Our projects"
+
+#: .\templates\main_home.html:184
+msgid "Bizning ajoyib mijozlarimiz uchun yangi ajoyib loyihalar"
+msgstr "New amazing projects for our amazing customers"
+
+#: .\templates\main_home.html:224
+msgid "Bizning jamoa"
+msgstr "Our team"
+
+#: .\templates\main_home.html:236
+msgid "Read More"
+msgstr "Read more"
+
+#: .\templates\main_home.html:255
+msgid "Mijozlar biz haqimizda"
+msgstr "Feeback about us"
+
+#: .\templates\main_home.html:256
+msgid "What Our Clients Say"
+msgstr "What Our Clients Say"
+
+#: .\templates\portfolios.html:167
+msgid "Bizning loihalarimiz haqida"
+msgstr "About our profiles"
+
+#: .\templates\service_page.html:99
+msgid "Bizning xizmatlar haqida"
+msgstr "About our services"
+
+#: .\templates\team_detail.html:167
+msgid "Bizning jamoamiz haqida"
+msgstr "About our team"

@@ -1,0 +1,242 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block content %}
+<style>
+    /* body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    } */
+     .navbar {
+        background-color: #333;
+     }
+     .navbar.custom-navbar{
+        padding-top: 15px;
+        padding-bottom: 15px;
+     }
+    
+    .container1 {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .blog-content {
+        margin-bottom: 40px;
+    }
+
+    .blog-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .blog-content p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .blog-meta {
+        font-size: 0.9rem;
+        color: #999;
+        margin-bottom: 20px;
+    }
+
+    /* Related Blogs Section */
+    .related-blogs {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 2px solid #e0e0e0;
+        position: relative;
+    }
+
+    .related-blogs h2 {
+        font-size: 1.8rem;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    /* Carousel Layout */
+    .carousel1 {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 30px; /* Adds 30px space below */
+    }
+
+    .carousel-inner1 {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+        min-width: 75%;
+    }
+
+    .carousel-item1 {
+        min-width: calc(33.3333% - 20px); /* Show three items and add margin */
+        box-sizing: border-box;
+        margin-right: 20px;
+    }
+
+    .carousel-item1 img {
+        width: 200px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 15px;
+    }
+
+    .carousel-item1 a {
+        font-size: 1.2rem;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-weight: bold;
+    }
+
+    .carousel-item1 a:hover {
+        color: #007bff;
+    }
+
+    .carousel-item1 p {
+        margin: 0;
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    .carousel-controls1 {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+
+    .carousel-controls1 button {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .carousel-controls1 button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 800px) {
+        .carousel-item1 {
+            min-width: 10px; /* Show two items on smaller screens */
+            margin-right: 10px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .carousel-item1 {
+            min-width: 50px; /* Show one item on small screens */
+            margin-right: 0;
+        }
+
+        .carousel-item1 img {
+            margin-bottom: 10px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .carousel-item1 a {
+            font-size: 1rem;
+        }
+    }
+    .item-main img{
+        width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+    <br><br><br><br><br><br><br>
+    <h6 class="section-title text-center mb-0">{% blocktrans %}Bizning loihalarimiz haqida{% endblocktrans %}</h6>
+<div class="container1">
+    <!-- Blog Main Content -->
+    <div class="blog-content">
+        <h1>{{portfolio.title}}</h1>
+        <div class="item-main">
+            <img src="{{portfolio.img.url}}" alt="Full Stack">
+        </div>
+        <p class="blog-meta">{{portfolio.date}}</p>
+
+        <p>
+            {{portfolio.description}}
+        </p>
+
+    </div>
+
+    <!-- Related Blogs Section with Carousel -->
+    <div class="related-blogs">
+        <h2>Other Blogs You May Like</h2>
+
+        <div class="carousel1">
+            <div class="carousel-inner1" id="carouselInner">
+                {% for port in portfolio_other %}
+                <div class="carousel-item1">
+                    <img src="{{ port.img.url }}" alt="JavaScript Frameworks">
+                    <div>
+                        <a href="{% url 'portfolio_view' port.id %}">{{port.title}}</a>
+                        <p>{{port.description|truncatechars:30}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-controls1">
+                <button id="prevBtn">&lt;</button>
+                <button id="nextBtn">&gt;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const carouselInner = document.getElementById('carouselInner');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const itemWidth = carouselInner.children[0].offsetWidth + 20; // Includes margin-right
+        const visibleItems = 3; // Number of items to display at once
+        const maxIndex = carouselInner.children.length - visibleItems;
+        const offset = -(itemWidth * currentIndex);
+        carouselInner.style.transform = `translateX(${offset}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        const visibleItems = 3;
+        const maxIndex = carouselInner.children.length - visibleItems;
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Initial Carousel Position
+    updateCarousel();
+</script>
+{% endblock %}

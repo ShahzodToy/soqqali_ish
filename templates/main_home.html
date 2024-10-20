@@ -1,0 +1,282 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<style>
+    .more-link{
+        margin-left: 20px;
+    }
+    /* Card container style */
+.service-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive image styling */
+.service-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Image hover effect */
+.service-img:hover {
+    transform: scale(1.05);
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive grid */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 20px;
+    }
+}
+
+    /* Team card container with shadow and hover effect */
+.team-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Team image with rounded corners */
+.team-img {
+    border-radius: 8px 8px 0 0;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Styling for the title and positioning */
+.card-title a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+    color: #007bff;
+}
+
+/* Position text */
+.team-position {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* 'Read More' link styling */
+.card-body .small.text-muted {
+    color: #888;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.card-body .small.text-muted:hover {
+    color: #007bff;
+}
+
+/* Add padding and margin to the row and column for better spacing */
+.row {
+    margin: 20px 0;
+}
+
+.col-md-3 {
+    margin-bottom: 30px;
+}
+
+</style>
+
+<header class="header">
+    <div class="overlay">
+        <h1 class="subtitle">{% blocktrans %}Biz sizning tarixingizni {% endblocktrans %}</h1>
+        <h1 class="title">{% blocktrans %}yaratuvchilarmiz{% endblocktrans %}</h1>  
+    </div>  
+    <div class="shape">
+        <svg viewBox="0 0 1500 200">
+            <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
+        </svg>
+    </div>  
+    <div class="mouse-icon"><div class="wheel"></div></div>
+</header>
+
+
+<section  id="service" class="section pt-0">
+    <div class="container">
+        <h6 class="section-title text-center">{% blocktrans %}Bizning hizmatlar{% endblocktrans %}</h6>
+        <h6 class="section-subtitle text-center mb-5 pb-3">{% blocktrans %}Asosiy hizmatlarimiz turli xil{% endblocktrans %}</h6>
+
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4">
+                <div class="card service-card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <img src="{{service.image.url}}" alt="{{service.title}}" class="img-fluid service-img">
+                        <h5 class="card-title mt-3">{{service.title}}</h5>
+                        <p class="mb-0">{{service.description |truncatewords:10}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <h4 class="more-link"><a href="{% url 'service' %}">{% blocktrans %}Boshqa xizmatlar ..{% endblocktrans %}</a></h4>
+    </div>
+</section>
+<!-- End OF Service Section -->
+
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-6 pr-md-5 mb-4 mb-md-0">
+                <h6 class="section-title mb-0">{% blocktrans %}Kompaniya haqida{% endblocktrans %}</h6>
+                <h6 class="section-subtitle mb-4">{% blocktrans %}Shunday qilib, sizga mukammal tadbirni tashkil qilishda yordam beraylik.{% endblocktrans %}</h6>
+                <p>{% blocktrans %}Biz tadbirlar tashkil tomonidan universitetda bizning yo'lga boshladi, qaysi bizning tajriba uchun asos. U erdan biz turli xil ko'ngillilik tadbirlarini kengaytirdik, qimmatli ko'nikmalar va tushunchalarga ega bo'ldik. Oxir-oqibat, biz voqealar sanoatining boshqa sohalariga, shu jumladan sport musobaqalari, korporativ tadbirlar va kampaniyalarga kirib, tajribamiz va xizmatlarimizni doimiy ravishda kengaytirdik.{% endblocktrans %}</p>
+                <img src="/media/portfolio/IMG_1966.JPG" alt="d" class="w-100 mt-3 shadow-sm">
+            </div>
+            <div class="col-md-6 pl-md-5">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="/media/portfolio/IMG_1967.JPG" alt="" class="w-100 shadow-sm">
+                    </div>
+                    <div class="col-12 mt-4">
+                        <p>{% blocktrans %}Bizning noyob sanoat tajribamiz bilan biz sizning tadbiringizni muammosiz va unutilmas qilishga intilamiz. Biz boshidan oxirigacha har tafsilotini band, butun jarayon orqali sizga yo'l-yo'riq va alohida xulosaga qadar erdan sizning tadbir qurish.{% endblocktrans %}</p>
+                        <p>{% blocktrans %}Biz mezbonlik qiladigan har bir tadbirda jahon darajasidagi standartlarni taqdim etishdan faxrlanamiz, bu bizga BFI erkaklar o'rtasidagi boks bo'yicha Jahon chempionati, futzal bo'yicha FIFA Jahon chempionati, taekvondo bo'yicha Jahon turniri saylovlari va boshqalar kabi taniqli tadbirlar bilan muvaffaqiyatli hamkorlik o'rnatishga imkon berdi.{% endblocktrans %}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>              
+    </div>
+</section>
+<!-- End OF About Section -->
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="section portfolio-section">
+    <div class="container">
+        <h6 class="section-title text-center">{% blocktrans %}Bizning loihalarimiz{% endblocktrans %}</h6>
+        <h6 class="section-subtitle mb-5 text-center">{% blocktrans %}Bizning ajoyib mijozlarimiz uchun yangi ajoyib loyihalar{% endblocktrans %}</h6>
+        <!-- <div class="filters">
+            <a href="#" data-filter=".new" class="active">
+                New
+            </a>
+            <a href="#" data-filter=".advertising">
+                Advertising
+            </a>
+            <a href="#" data-filter=".branding">
+                Branding
+            </a>
+            <a href="#" data-filter=".web">
+                Web
+            </a>
+        </div> -->
+
+        <div class="portfolio-container"> 
+            {% for port in portfolio %}
+            <div class="col-md-12 col-lg-6 web new">
+                <div class="portfolio-item">
+                    <img src="{{ port.img.url }}" class="img-fluid" alt="Rasm bor">
+                    <div class="content-holder">
+                        <a class="img-popup" href="{{ port.img.url }}"></a>
+                        <div class="text-holder">
+                            <h6 class="title"> <a class="aaaa" href="{% url 'portfolio_view' port.id %}">{{ port.title }}</a></h6>
+                            <p class="subtitle">{{ port.description }}</p>
+                        </div>
+                    </div>   
+                </div>             
+            </div>
+            {% endfor%}
+            
+        </div>   
+    </div>            
+</section>
+<!-- End of portfolio section -->
+
+
+<section class="section" id="blog">
+    <div class="container">
+        <h6 class="section-title mb-0 text-center">{% blocktrans %}Bizning jamoa{% endblocktrans %}</h6>
+        <br><br><br><br>
+                    <div class="row">
+                        {% for team in teams %}
+                        <div class="col-md-3">
+                            <div class="card team-card border-0 mb-4 shadow-sm">
+                                <img src="{{ team.profile_image.url }}" alt="{{team.full_name}}" class="card-img-top w-100 team-img">
+                                <div class="card-body">
+                                    <h6 class="card-title">
+                                        <a href="{% url 'team_detail' team.id %}">{{team.full_name}}</a>
+                                    </h6>
+                                    <p class="team-position">{{team.position}}</p>
+                                    <a href="{% url 'team_detail' team.id %}" class="small text-muted">{% blocktrans %}Ko'proq{% endblocktrans%}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+        
+                <!-- Carousel Controls -->
+          
+
+    </div>
+</section>
+
+
+
+
+
+<section class="section" id="testimonial">
+    <div class="container">
+        <h6 class="section-title text-center mb-0">{% blocktrans %}Mijozlar biz haqimizda{% endblocktrans %}</h6>
+        <!-- <h6 class="section-subtitle mb-5 text-center">{% blocktrans %}What Our Clients Say{% endblocktrans %}</h6> -->
+
+        <div class="slider">
+            <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="slide-track">
+                {% for client in clients %}
+                <div class="slide">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media align-items-center mb-3">
+                                <img class="mr-3 rounded-circle" src="{{ client.image.url }}" alt="Client Image" style="width: 60px; height: 60px;">
+                                <div class="media-body">
+                                    <h6 class="mt-1 mb-0">{{ client.name }}</h6>
+                                    <small class="text-muted mb-0">{{ client.company_name }}</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">{{ client.comment }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
